@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <androidx.core.widget.NestedScrollView
+    <com.quansu.myapplication.view.ChildNestedScrollView
         android:id="@+id/nested_parent_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -70,5 +70,5 @@
             <!--        android:background="#77880099" />-->
 
         </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+    </com.quansu.myapplication.view.ChildNestedScrollView>
 </com.quansu.myapplication.view.HMBLayout>
