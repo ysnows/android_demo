@@ -28,15 +28,7 @@ class MyLinearLayout @JvmOverloads constructor(
         head = findViewById(R.id.lay_head)
         middle = findViewById(R.id.lay_middle)
         bottom = findViewById(R.id.lay_bottom)
-        val content = findViewById<LinearLayout>(R.id.lay_content)
 
-        for (i in 1..100) {
-            content.addView(TextView(context).apply {
-                text = "hello__$i"
-                textSize = 20f
-                gravity = Gravity.CENTER
-            })
-        }
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {

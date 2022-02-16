@@ -49,17 +49,118 @@
                     android:textSize="32sp" />
             </LinearLayout>
 
+
             <androidx.core.widget.NestedScrollView
                 android:id="@+id/lay_bottom"
                 android:layout_width="match_parent"
-                android:layout_height="800dp">
+                android:layout_height="wrap_content"
+                android:background="@color/teal_800">
 
                 <LinearLayout
-                    android:id="@+id/lay_content"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/teal_800"
                     android:orientation="vertical">
 
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:background="@color/teal_700" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:background="@color/teal_700" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:background="@color/teal_700" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:background="@color/teal_700" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:background="@color/teal_700" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:background="@color/teal_700" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:background="@color/teal_700" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:background="@color/teal_700" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:background="@color/teal_700" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:background="@color/teal_700" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:background="@color/teal_700" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:background="@color/teal_700" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:background="@color/teal_700" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:background="@color/teal_700" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:background="@color/teal_700" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:background="@color/teal_700" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:background="@color/teal_700" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:background="@color/teal_700" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:background="@color/teal_700" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:background="@color/teal_700" />
                 </LinearLayout>
 
             </androidx.core.widget.NestedScrollView>
