@@ -30,7 +30,6 @@ class MyLinearLayout @JvmOverloads constructor(
         bottom = findViewById(R.id.lay_bottom)
         val content = findViewById<LinearLayout>(R.id.lay_content)
 
-
         for (i in 1..100) {
             content.addView(TextView(context).apply {
                 text = "hello__$i"
@@ -51,30 +50,30 @@ class MyLinearLayout @JvmOverloads constructor(
     }
 
 
-    override fun onTouchEvent(event: MotionEvent?): Boolean {
-        return when (event?.action) {
-            MotionEvent.ACTION_DOWN -> {
-                lastY = event.y
-                true
-            }
-            MotionEvent.ACTION_MOVE -> {
-                val curY = event.y
-                val gap = (lastY - curY).toInt()
-                Log.d(VIEW_LOG_TAG, "curY: $curY")
-                Log.d(VIEW_LOG_TAG, "lastY: $lastY")
-                Log.d(VIEW_LOG_TAG, "gap: $gap")
-//                if (abs(gap) > ViewConfiguration.getTouchSlop()) {
-                scrollBy(0, gap)
-//                }
-                lastY = curY
-                true
-            }
-            else -> {
-                return super.onTouchEvent(event)
-            }
-        }
-
-    }
+//    override fun onTouchEvent(event: MotionEvent?): Boolean {
+//        return when (event?.action) {
+//            MotionEvent.ACTION_DOWN -> {
+//                lastY = event.y
+//                true
+//            }
+//            MotionEvent.ACTION_MOVE -> {
+//                val curY = event.y
+//                val gap = (lastY - curY).toInt()
+//                Log.d(VIEW_LOG_TAG, "curY: $curY")
+//                Log.d(VIEW_LOG_TAG, "lastY: $lastY")
+//                Log.d(VIEW_LOG_TAG, "gap: $gap")
+////                if (abs(gap) > ViewConfiguration.getTouchSlop()) {
+//                scrollBy(0, gap)
+////                }
+//                lastY = curY
+//                true
+//            }
+//            else -> {
+//                return super.onTouchEvent(event)
+//            }
+//        }
+//
+//    }
 
     override fun scrollTo(x: Int, y: Int) {
         Log.d(VIEW_LOG_TAG, "scrollTo: $y")
