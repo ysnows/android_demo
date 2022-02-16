@@ -22,6 +22,7 @@ class HMBLayout @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : NestedLinearLayout(context, attrs, defStyleAttr) {
 
+    private var nestedParentView: ChildNestedScrollView? = null
     private var headHeight: Int? = null
     private var head: View? = null
     private var middle: View? = null
@@ -30,6 +31,7 @@ class HMBLayout @JvmOverloads constructor(
 
     override fun onFinishInflate() {
         super.onFinishInflate()
+        nestedParentView = findViewById(R.id.nested_parent_view)
         head = findViewById(R.id.lay_head)
         middle = findViewById(R.id.lay_middle)
         bottom = findViewById(R.id.lay_bottom)
@@ -70,7 +72,15 @@ class HMBLayout @JvmOverloads constructor(
     @SuppressLint("RestrictedApi")
     override fun onNestedPreScroll(target: View, dx: Int, dy: Int, consumed: IntArray, type: Int) {
 //        super.onNestedPreScroll(target, dx, dy, consumed, type)
-        if (target.scrollY < headHeight ?: 0) {
+        val rect = Rect()
+        head?.getGlobalVisibleRect(rect)
+
+
+        Log.d(VIEW_LOG_TAG, "RECT: height${rect.bottom} dy: $dy")
+
+        val parentOffsetY = nestedParentView?.computeVerticalScrollOffset() ?: 0
+
+        if (parentOffsetY < headHeight ?: 0) {
             Log.d(VIEW_LOG_TAG, "1")
 
         } else {
@@ -80,7 +90,6 @@ class HMBLayout @JvmOverloads constructor(
                 consumed[1] = dy
             }
             if (dy < 0) {
-
                 val maxScrollY = bottom?.computeVerticalScrollOffset() ?: 0
                 if (maxScrollY > abs(dy)) {
                     bottom?.scrollBy(0, dy)
