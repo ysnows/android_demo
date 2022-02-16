@@ -12,9 +12,9 @@ class ScrollerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scroller)
         val containerViewGroup: Case1ViewGroup =
-            findViewById(R.id.container_viewgroup) as Case1ViewGroup
-        val leftButton = findViewById(R.id.button_left) as Button
-        val rightButton = findViewById(R.id.button_right) as Button
+            findViewById(R.id.container_viewgroup)
+        val leftButton = findViewById<Button>(R.id.button_left)
+        val rightButton = findViewById<Button>(R.id.button_right)
         val onButtonClickListener =
             View.OnClickListener { v ->
                 val currentIndex: Int = containerViewGroup.getCurrentIndex()

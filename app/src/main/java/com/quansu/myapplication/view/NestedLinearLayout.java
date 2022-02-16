@@ -12,7 +12,7 @@ import androidx.core.view.NestedScrollingParent2;
 import androidx.core.view.NestedScrollingParentHelper;
 import androidx.core.widget.NestedScrollView;
 
-public class NestedLinearLayout extends NestedScrollView implements NestedScrollingParent2 {
+public class NestedLinearLayout extends LinearLayout implements NestedScrollingParent2 {
 
     private NestedScrollingParentHelper scrollHelper = new NestedScrollingParentHelper(this);
 
@@ -25,7 +25,7 @@ public class NestedLinearLayout extends NestedScrollView implements NestedScroll
     }
 
     public NestedLinearLayout(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs,  0);
+        super(context, attrs, 0);
     }
 
 

@@ -136,6 +136,9 @@ public class Case1ViewGroup extends ViewGroup {
         float curX = event.getX();
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
+                if (!scroller.isFinished()) {
+                    scroller.abortAnimation();
+                }
                 mLastTouchX = curX;
                 velocityTracker = VelocityTracker.obtain();
                 velocityTracker.addMovement(event);
@@ -149,15 +152,17 @@ public class Case1ViewGroup extends ViewGroup {
             case MotionEvent.ACTION_UP:
                 velocityTracker.computeCurrentVelocity(1000);
                 float xVelocity = velocityTracker.getXVelocity();
+                float yVelocity = velocityTracker.getYVelocity();
                 Log.e(VIEW_LOG_TAG, "xVelocity: " + xVelocity);
-                if (xVelocity > VELOCITY_MIN) {
-                    moveToIndex(mCurrentIndex - 1);
-                } else if (xVelocity < -VELOCITY_MIN) {
-                    moveToIndex(mCurrentIndex + 1);
-                } else {
-                    int targetIndex = (getScrollX() + getWidth() / 2) / getWidth();
-                    moveToIndex(targetIndex);
-                }
+//                if (xVelocity > VELOCITY_MIN) {
+//                    moveToIndex(mCurrentIndex - 1);
+//                } else if (xVelocity < -VELOCITY_MIN) {
+//                    moveToIndex(mCurrentIndex + 1);
+//                } else {
+//                    int targetIndex = (getScrollX() + getWidth() / 2) / getWidth();
+//                    moveToIndex(targetIndex);
+//                }
+                scroller.fling(getScrollX(), getScrollY(), (int) -xVelocity, (int) yVelocity, 0, (getWidth() * CHILD_NUMBER - 1), 0, 0);
 
                 if (velocityTracker != null) {
                     velocityTracker.recycle();
@@ -180,4 +185,6 @@ public class Case1ViewGroup extends ViewGroup {
 
         super.scrollTo(x, y);
     }
+
+
 }
