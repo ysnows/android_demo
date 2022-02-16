@@ -23,7 +23,7 @@ class HMBLayout @JvmOverloads constructor(
 ) : NestedLinearLayout(context, attrs, defStyleAttr) {
 
     private var nestedParentView: ChildNestedScrollView? = null
-    private var headHeight: Int? = null
+    private var headHeight: Int = 0
     private var head: View? = null
     private var middle: View? = null
     private var bottom: NestedScrollView? = null
@@ -61,7 +61,7 @@ class HMBLayout @JvmOverloads constructor(
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
-        headHeight = head?.measuredHeight
+        headHeight = head!!.measuredHeight
 
     }
 
@@ -72,41 +72,38 @@ class HMBLayout @JvmOverloads constructor(
     @SuppressLint("RestrictedApi")
     override fun onNestedPreScroll(target: View, dx: Int, dy: Int, consumed: IntArray, type: Int) {
 //        super.onNestedPreScroll(target, dx, dy, consumed, type)
-        val rect = Rect()
-        head?.getGlobalVisibleRect(rect)
+        if (dy > 0) {
+            val parentOffsetY = nestedParentView?.computeVerticalScrollOffset() ?: 0
+            val offsetDelta = headHeight - (parentOffsetY + dy)
+            Log.d(VIEW_LOG_TAG, "RECT: height $parentOffsetY dy: $dy offsetDelta: $offsetDelta")
+            if (offsetDelta > 0) {
+                Log.d(VIEW_LOG_TAG, "1")
+            } else {
+                bottom?.scrollBy(0, -offsetDelta)
+                consumed[1] = -offsetDelta
+            }
+        }
+        if (dy < 0) {
+
+            val maxScrollY = bottom?.computeVerticalScrollOffset() ?: 0
+            val offsetDelta = (maxScrollY + dy)
+            Log.d(
+                VIEW_LOG_TAG,
+                "RECT: height $maxScrollY dy: $dy offsetDelta: $offsetDelta canScrollVertically: ${
+                    bottom?.canScrollVertically(1)
+                }"
+            )
 
 
-        Log.d(VIEW_LOG_TAG, "RECT: height${rect.bottom} dy: $dy")
-
-        val parentOffsetY = nestedParentView?.computeVerticalScrollOffset() ?: 0
-
-        if (parentOffsetY < headHeight ?: 0) {
-            Log.d(VIEW_LOG_TAG, "1")
-
-        } else {
-            Log.d(VIEW_LOG_TAG, "2")
-            if (dy > 0) {
+            if (maxScrollY > abs(dy)) {
                 bottom?.scrollBy(0, dy)
                 consumed[1] = dy
-            }
-            if (dy < 0) {
-                val maxScrollY = bottom?.computeVerticalScrollOffset() ?: 0
-                if (maxScrollY > abs(dy)) {
-                    bottom?.scrollBy(0, dy)
-                    consumed[1] = dy
-                } else {
-                    bottom?.scrollBy(0, maxScrollY)
-                    consumed[1] = -maxScrollY
-                }
+            } else {
+                bottom?.scrollBy(0, -maxScrollY)
+                consumed[1] = -maxScrollY
             }
         }
 
-//        val hideHead = dy > 0
-//        if (hideHead) {
-//            consumed[1] = dy
-//        }
-//        val canScrollVertically = target.canScrollVertically(-1)
-//        val showHead = dy < 0 && !canScrollVertically
     }
 
 
