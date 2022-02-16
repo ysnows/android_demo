@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.quansu.myapplication.view.HMBLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lay_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <com.quansu.myapplication.view.ChildNestedScrollView
+        android:id="@+id/nested_parent_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/teal_800">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/lay_head"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:background="@color/design_default_color_primary_variant"
+                    android:gravity="center"
+                    android:text="head"
+                    android:textSize="32sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lay_middle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@color/purple_200"
+                    android:gravity="center"
+                    android:text="middle"
+                    android:textSize="32sp" />
+            </LinearLayout>
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#77880099" />
+
+        </LinearLayout>
+    </com.quansu.myapplication.view.ChildNestedScrollView>
+</com.quansu.myapplication.view.HMBLayout>

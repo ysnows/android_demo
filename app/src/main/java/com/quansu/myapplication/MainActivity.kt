@@ -22,6 +22,16 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btn_jump_view_draw).setOnClickListener {
             startActivity(Intent(this, ViewDrawActivity::class.java))
         }
+        findViewById<Button>(R.id.btn_jump_view_draw3).setOnClickListener {
+            startActivity(Intent(this, ViewDrawActivity::class.java).apply {
+                putExtra("from", 2)
+            })
+        }
+        findViewById<Button>(R.id.btn_jump_view_draw2).setOnClickListener {
+            startActivity(Intent(this, ViewDrawActivity::class.java).apply {
+                putExtra("from", 1)
+            })
+        }
         findViewById<Button>(R.id.btn_jump_view_scroller).setOnClickListener {
             startActivity(Intent(this, ScrollerActivity::class.java))
         }

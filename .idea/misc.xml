@@ -12,6 +12,9 @@
         <entry key="app/src/main/res/layout/activity_scroller.xml" value="0.14814814814814814" />
         <entry key="app/src/main/res/layout/activity_view_draw.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_view_draw_recyclerview.xml" value="0.28055555555555556" />
+        <entry key="app/src/main/res/layout/activity_view_draw_viewpager.xml" value="0.28055555555555556" />
+        <entry key="app/src/main/res/layout/fragment_item.xml" value="0.28055555555555556" />
+        <entry key="app/src/main/res/layout/fragment_item_list.xml" value="0.28055555555555556" />
         <entry key="app/src/main/res/layout/item_rv_draw.xml" value="0.28055555555555556" />
       </map>
     </option>

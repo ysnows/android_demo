@@ -21,7 +21,7 @@ class HMBLayout @JvmOverloads constructor(
     private var head: View? = null
     private var middle: View? = null
     private var bottom: ViewGroup? = null
-    private var bottomCurScrollingView: ScrollingView? = null
+    private var bottomCurScrollingView: View? = null
     private var lastY: Float = 0f
 
     override fun onFinishInflate() {
@@ -69,26 +69,20 @@ class HMBLayout @JvmOverloads constructor(
             if (offsetDelta > 0) {
                 Log.d(VIEW_LOG_TAG, "1")
             } else {
-                bottom?.scrollBy(0, -offsetDelta)
+                bottomCurScrollingView?.scrollBy(0, -offsetDelta)
                 consumed[1] = -offsetDelta
             }
         }
         if (dy < 0) {
 
-            val maxScrollY = bottomCurScrollingView?.computeVerticalScrollOffset() ?: 0
-            val offsetDelta = (maxScrollY + dy)
-            Log.d(
-                VIEW_LOG_TAG,
-                "RECT: height $maxScrollY dy: $dy offsetDelta: $offsetDelta canScrollVertically: ${
-                    bottom?.canScrollVertically(1)
-                }"
-            )
+            val maxScrollY =
+                (bottomCurScrollingView as ScrollingView).computeVerticalScrollOffset() ?: 0
 
             if (maxScrollY > abs(dy)) {
-                bottom?.scrollBy(0, dy)
+                bottomCurScrollingView?.scrollBy(0, dy)
                 consumed[1] = dy
             } else {
-                bottom?.scrollBy(0, -maxScrollY)
+                bottomCurScrollingView?.scrollBy(0, -maxScrollY)
                 consumed[1] = -maxScrollY
             }
         }
@@ -97,7 +91,7 @@ class HMBLayout @JvmOverloads constructor(
 
 
     fun setBottomCurScrollingView(scrollingView: ScrollingView) {
-        bottomCurScrollingView = scrollingView
+        bottomCurScrollingView = scrollingView as View
     }
 
 
