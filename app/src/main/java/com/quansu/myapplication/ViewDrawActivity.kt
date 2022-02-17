@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.ViewGroup
+import android.webkit.WebView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -67,7 +68,7 @@ class ViewDrawActivity : AppCompatActivity() {
             }
 
             override fun createFragment(position: Int): Fragment {
-                return ItemFragment.newInstance(position + 1,hmbLayout)
+                return ItemFragment.newInstance(position + 1, hmbLayout)
             }
         }
     }
