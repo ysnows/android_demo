@@ -23,41 +23,10 @@
 
 
         <Button
-            android:id="@+id/btn_change"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:text="change" />
-
-        <Button
-            android:id="@+id/btn_jump"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="jump to activity2" />
-
-        <Button
             android:id="@+id/btn_jump_view_draw"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="okhttp" />
-
-        <Button
-            android:id="@+id/btn_jump_view_draw2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="jump to activity_view_draw_recyclerview" />
-
-        <Button
-            android:id="@+id/btn_jump_view_draw3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="jump to activity_view_draw_viewpager" />
-
-        <Button
-            android:id="@+id/btn_jump_view_scroller"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="jump to activity_view_scroller" />
 
 
     </LinearLayout>

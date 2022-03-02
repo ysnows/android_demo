@@ -6,6 +6,10 @@ import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.Response
+import okio.IOException
 
 class MainActivity : AppCompatActivity() {
     private val logTag: String = "ActivityLifeCycle"
@@ -20,7 +24,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, MainActivity2::class.java))
         }
         findViewById<Button>(R.id.btn_jump_view_draw).setOnClickListener {
-            startActivity(Intent(this, ViewDrawActivity::class.java))
+
+            okhttpDemo()
+
+
         }
         findViewById<Button>(R.id.btn_jump_view_draw3).setOnClickListener {
             startActivity(Intent(this, ViewDrawActivity::class.java).apply {
@@ -35,6 +42,22 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btn_jump_view_scroller).setOnClickListener {
             startActivity(Intent(this, ScrollerActivity::class.java))
         }
+    }
+
+    private fun okhttpDemo() {
+
+        val client = OkHttpClient()
+
+
+        val url = "https://www.baidu.com"
+        val request = Request.Builder()
+            .url(url)
+            .build();
+
+        val resp = client.newCall(request).execute()
+
+        Log.d("TAG", "" + resp.body?.string())
+
     }
 
     override fun onStart() {

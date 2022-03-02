@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.quansu.myapplication">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -12,16 +16,24 @@
         android:theme="@style/Theme.MyApplication">
         <activity
             android:name=".MainActivity"
+            android:exported="true"></activity>
+        <activity android:name=".MainActivity2" />
+        <activity android:name=".ViewDrawActivity" />
+        <activity android:name=".ScrollerActivity" />
+        <activity
+            android:name=".OkhttpActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ServiceActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
-        <activity android:name=".Main2Activity" />
-        <activity android:name=".MainActivity2" />
-        <activity android:name=".ViewDrawActivity" />
-        <activity android:name=".ScrollerActivity" />
+
+        <service android:name=".service.DemoService" />
     </application>
 
 </manifest>
