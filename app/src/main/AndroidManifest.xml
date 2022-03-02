@@ -33,8 +33,15 @@
 
         </activity>
 
-        <!--            android:process=":start_service"-->
-        <service android:name=".service.DemoService" />
+
+        <service
+            android:name=".service.DemoService"
+            android:exported="true"
+            android:process=":start_service">
+            <intent-filter>
+                <action android:name="com.example.servicetest.MyAIDLService" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
