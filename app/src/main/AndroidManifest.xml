@@ -33,6 +33,7 @@
 
         </activity>
 
+        <!--            android:process=":start_service"-->
         <service android:name=".service.DemoService" />
     </application>
 
