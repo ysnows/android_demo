@@ -46,13 +46,6 @@ public class DemoService extends Service {
     public void onCreate() {
         super.onCreate();
         Log.d("thread", "onCreate: pid=" + Process.myPid() + "  threadName=" + Thread.currentThread().getName());
-
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
     }
 
 

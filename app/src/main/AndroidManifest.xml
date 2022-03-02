@@ -22,10 +22,11 @@
         <activity android:name=".ScrollerActivity" />
         <activity
             android:name=".OkhttpActivity"
-            android:exported="true" />
+            android:exported="true"></activity>
         <activity
             android:name=".ServiceActivity"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -39,7 +40,8 @@
             android:exported="true"
             android:process=":start_service">
             <intent-filter>
-                <action android:name="com.example.servicetest.MyAIDLService" />
+                <action android:name="android.intent.action.CALL" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
     </application>

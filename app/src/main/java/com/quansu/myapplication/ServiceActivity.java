@@ -76,7 +76,12 @@ public class ServiceActivity extends AppCompatActivity {
                 }
             };
 
-            bindService(new Intent(ServiceActivity.this, DemoService.class), serviceConnection, BIND_AUTO_CREATE);
+
+//            Intent intent = new Intent(ServiceActivity.this, DemoService.class);
+            Intent intent = new Intent(Intent.ACTION_CALL);
+            intent.setPackage("com.quansu.myapplication");
+            bindService(intent, serviceConnection, BIND_AUTO_CREATE);
+
         });
 
 
